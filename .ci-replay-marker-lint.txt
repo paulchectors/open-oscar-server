@@ -1,0 +1,3 @@
+# CI replay marker for lint/go vet
+feature_branch: replay-46ea78ee
+workflow: .github/workflows/go.yml
