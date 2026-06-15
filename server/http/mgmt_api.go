@@ -262,6 +262,8 @@ func putUserPasswordHandler(w http.ResponseWriter, r *http.Request, userManager 
 	}
 
 	sn := state.NewIdentScreenName(input.ScreenName)
+	ctx, _ := context.WithCancel(r.Context())
+	r = r.WithContext(ctx)
 
 	if err := userManager.SetUserPassword(r.Context(), sn, input.Password); err != nil {
 		switch {
